@@ -3,7 +3,7 @@ using Interview.Application.Commons.Dtos.Concretes.Response;
 using Interview.Application.Commons.Helpers;
 using MediatR;
 
-namespace Interview.Application.UseCases.Users.Commands
+namespace Interview.Application.UseCases.Users.Commands.CreateUser
 {
     public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, SingleResponse<bool>>
     {

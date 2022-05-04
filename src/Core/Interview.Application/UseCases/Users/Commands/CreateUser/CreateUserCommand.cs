@@ -1,7 +1,7 @@
 ﻿using Interview.Application.Commons.Dtos.Concretes.Response;
 using MediatR;
 
-namespace Interview.Application.UseCases.Users.Commands
+namespace Interview.Application.UseCases.Users.Commands.CreateUser
 {
     public class CreateUserCommand : IRequest<SingleResponse<bool>>
     {

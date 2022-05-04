@@ -2,7 +2,7 @@
 using Interview.Application.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Interview.Application.UseCases.Users.Commands
+namespace Interview.Application.UseCases.Users.Commands.CreateUser
 {
     public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
