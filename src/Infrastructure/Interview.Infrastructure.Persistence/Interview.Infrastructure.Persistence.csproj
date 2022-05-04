@@ -14,12 +14,17 @@
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="6.0.4" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.2.4" />
     <PackageReference Include="StackExchange.Redis" Version="2.5.61" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Interview.Application\Interview.Application.csproj" />
     <ProjectReference Include="..\..\Core\Interview.Domain\Interview.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Elasticsearch\" />
   </ItemGroup>
 
 </Project>

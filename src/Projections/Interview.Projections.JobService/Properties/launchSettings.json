@@ -1,6 +1,6 @@
 ﻿{
   "profiles": {
-    "Interview.Projections.UserService": {
+    "Interview.Projections.JobService": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "environmentVariables": {

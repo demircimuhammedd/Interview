@@ -25,6 +25,14 @@ services:
     container_name: c_rabbitmq
     image: rabbitmq:3-management
 
+  s_elasticsearch:
+    container_name: c_elasticsearch
+    image: elasticsearch:6.8.23
+
+  s_kibana:
+    container_name: c_kibana
+    image: docker.elastic.co/kibana/kibana-oss:6.8.23
+
 networks:
   net_backend:
     driver: bridge

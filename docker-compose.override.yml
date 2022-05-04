@@ -57,6 +57,42 @@ services:
     networks:
       - net_backend
 
+  s_elasticsearch:
+   environment:
+      - cluster.name=docker-cluster
+      - bootstrap.memory_lock=true
+      - http.host=0.0.0.0
+      - http.port=9200
+      - transport.host=127.0.0.1
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "http.cors.allow-origin=http://127.0.0.1:1358"
+      - "http.cors.enabled=true"
+      - "http.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization"
+      - "http.cors.allow-credentials=true"
+   ports:
+      - "9200:9200"
+      - "9300:9300"
+   ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+   volumes:
+     - elasticsearch_data:/usr/share/elasticsearch/data
+   networks:
+     - net_backend
+
+  s_kibana:
+    environment:
+      SERVER_NAME: kibana-server
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    networks:
+      - net_backend
+    depends_on:
+      - s_elasticsearch
+    ports:
+      - "5601:5601"
+  
+
 networks:
   net_backend:
     driver: bridge
@@ -66,6 +102,7 @@ volumes:
     rabbitmq:
     postgres_data:
     pgadmin_data:
+    elasticsearch_data:
   
   
     

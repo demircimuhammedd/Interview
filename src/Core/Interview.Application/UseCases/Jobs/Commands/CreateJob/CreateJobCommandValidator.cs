@@ -14,7 +14,8 @@ namespace Interview.Application.UseCases.Jobs.Commands.CreateJob
 
             RuleFor(v => v.CreatedById)
               .NotEmpty().WithMessage("Created by is required.")
-              .MustAsync(BeExistUser).WithMessage("Created by not found.");
+              .MustAsync(BeExistUser).WithMessage("Created by not found.")
+              .MustAsync(BeExistQuantity).WithMessage("Created by not found quantity.");
 
             RuleFor(v => v.Desciption)
                .NotEmpty().WithMessage("Desciption is required.")
@@ -22,11 +23,14 @@ namespace Interview.Application.UseCases.Jobs.Commands.CreateJob
 
             RuleForEach(x => x.PositionIds)
                 .NotNull()
-                .WithMessage("Position {CollectionIndex} is required."); 
-                
+                .WithMessage("Position {CollectionIndex} is required.");
+
         }
 
         private async Task<bool> BeExistUser(Guid id, CancellationToken cancellationToken) =>
            await _context.Users.AnyAsync(l => l.ID == id, cancellationToken);
+
+        private async Task<bool> BeExistQuantity(Guid id, CancellationToken cancellationToken) =>
+            await _context.Users.AnyAsync(l => l.ID == id && l.JobQuantity > 0, cancellationToken);
     }
 }

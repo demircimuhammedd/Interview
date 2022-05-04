@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
 
-namespace Interview.Application.UseCases.Users.Queries.GetUsersWithPagination
+namespace Interview.Application.UseCases.Jobs.Queries.GetJobsWithPagination
 {
-    public class GetUsersWithPaginationQueryValidator : AbstractValidator<GetUsersWithPaginationQuery>
+    public class GetJobsWithPaginationQueryValidator : AbstractValidator<GetJobsWithPaginationQuery>
     {
-        public GetUsersWithPaginationQueryValidator()
+        public GetJobsWithPaginationQueryValidator()
         {
             RuleFor(x => x.PageNumber)
                 .GreaterThanOrEqualTo(1).WithMessage("PageNumber at least greater than or equal to 1.");

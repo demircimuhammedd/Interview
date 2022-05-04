@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Domain", "src\Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interview.Infrastructure.Persistence", "src\Infrastructure\Interview.Infrastructure.Persistence\Interview.Infrastructure.Persistence.csproj", "{8940AADD-57C7-44DC-AAE2-F3B7EFA945CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.Projections.UserService", "src\Projections\Interview.Projections.UserService\Interview.Projections.UserService.csproj", "{896B0C51-44A3-4227-AA41-44F11BD98836}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.Projections.JobService", "src\Projections\Interview.Projections.JobService\Interview.Projections.JobService.csproj", "{896B0C51-44A3-4227-AA41-44F11BD98836}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Interview.WebAPI", "src\UI\Interview.WebAPI\Interview.WebAPI.csproj", "{3065A84F-E7C2-4DF4-9EC4-8B734CE93DF0}"
 EndProject
