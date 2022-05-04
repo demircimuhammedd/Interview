@@ -3,6 +3,7 @@ using System;
 using Interview.Infrastructure.Persistence.EfCore.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Interview.Infrastructure.Persistence.EfCore.Migrations
 {
     [DbContext(typeof(InterviewDbContext))]
-    partial class InterviewContextModelSnapshot : ModelSnapshot
+    [Migration("20220504165812_JobColumnChanged")]
+    partial class JobColumnChanged
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

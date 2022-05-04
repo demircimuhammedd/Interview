@@ -6,8 +6,6 @@
         public string Description { get; set; }
         public DateTime EndedAt { get; set; }
         public short Rate { get; set; }
-        public Guid? FringeBenefitId { get; set; }
-        public Guid? WorkTypeId { get; set; }
         public decimal? Salary { get; set; }
 
         public virtual User CreatedBy { get; set; }
