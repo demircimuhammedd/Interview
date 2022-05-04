@@ -11,7 +11,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Interview.Infrastructure.Persistence.EfCore.Migrations
 {
-    [DbContext(typeof(InterviewContext))]
+    [DbContext(typeof(InterviewDbContext))]
     [Migration("20220504114104_Initial")]
     partial class Initial
     {

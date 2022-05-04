@@ -1,13 +1,14 @@
-﻿using Interview.Domain.Entities;
+﻿using Interview.Application.Abstractions;
+using Interview.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using System.Reflection;
 
 namespace Interview.Infrastructure.Persistence.EfCore.Context
 {
-    public class InterviewContext : DbContext
+    public class InterviewDbContext : DbContext, IInterviewDbContext
     {
-        public InterviewContext(DbContextOptions options) : base(options)
+        public InterviewDbContext(DbContextOptions options) : base(options)
         {
 
         }

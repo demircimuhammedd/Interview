@@ -11,10 +11,10 @@ namespace Interview.Infrastructure.Persistence
         {
             services
             .AddEntityFrameworkNpgsql()
-            .AddDbContext<InterviewContext>(options => options
+            .AddDbContext<InterviewDbContext>(options => options
                 .UseNpgsql(configuration
                     .GetConnectionString("DefaultConnection"), b => b
-                    .MigrationsAssembly(typeof(InterviewContext).Assembly.FullName)));
+                    .MigrationsAssembly(typeof(InterviewDbContext).Assembly.FullName)));
 
             return services;
         }

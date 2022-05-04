@@ -10,7 +10,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Interview.Infrastructure.Persistence.EfCore.Migrations
 {
-    [DbContext(typeof(InterviewContext))]
+    [DbContext(typeof(InterviewDbContext))]
     partial class InterviewContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
