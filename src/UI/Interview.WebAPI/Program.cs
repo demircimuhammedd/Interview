@@ -1,3 +1,4 @@
+using Interview.Application;
 using Interview.Infrastructure.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddApplication();
 builder.Services.AddEfCoreInfrastructure(builder.Configuration);
 
 var app = builder.Build();
