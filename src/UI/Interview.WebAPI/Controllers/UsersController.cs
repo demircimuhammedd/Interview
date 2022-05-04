@@ -7,8 +7,7 @@ namespace Interview.WebAPI.Controllers
 {
     public class UsersController : ApiControllerBase
     {
-        [HttpPost]
-        [Route("create", Name = nameof(Create))]
+        [HttpPost] 
         public async Task<IActionResult> Create([FromBody] CreateUserCommand command)
         {
             SingleResponse<bool> singleResponse = await Mediator.Send(command);
