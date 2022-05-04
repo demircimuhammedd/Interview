@@ -2,7 +2,7 @@
 using Interview.Application.Abstractions;
 using Microsoft.EntityFrameworkCore;
 
-namespace Interview.Application.UseCases.Users.Commands.BadVocable
+namespace Interview.Application.UseCases.BadVocables.Commands.CreateBadVocable
 {
     public class CreateBadVocableCommandValidator : AbstractValidator<CreateBadVocableCommand>
     {

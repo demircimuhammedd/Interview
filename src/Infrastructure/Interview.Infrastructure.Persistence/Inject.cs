@@ -1,5 +1,6 @@
 ﻿using Interview.Application.Abstractions;
 using Interview.Infrastructure.Persistence.EfCore.Context;
+using Interview.Infrastructure.Persistence.Redis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +19,8 @@ namespace Interview.Infrastructure.Persistence
                     .MigrationsAssembly(typeof(InterviewDbContext).Assembly.FullName)));
 
             services.AddScoped<IInterviewDbContext>(provider => provider.GetService<InterviewDbContext>());
-
+            services.AddSingleton<RedisServer>();
+            services.AddSingleton<ICacheService, RedisCacheService>();
             return services;
         }
     }

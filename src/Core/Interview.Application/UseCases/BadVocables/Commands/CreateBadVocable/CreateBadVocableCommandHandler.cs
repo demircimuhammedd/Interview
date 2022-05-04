@@ -3,15 +3,17 @@ using Interview.Application.Commons.Dtos.Concretes.Response;
 using Interview.Application.Commons.Helpers;
 using MediatR;
 
-namespace Interview.Application.UseCases.Users.Commands.BadVocable
+namespace Interview.Application.UseCases.BadVocables.Commands.CreateBadVocable
 {
     public class CreateBadVocableCommandHandler : IRequestHandler<CreateBadVocableCommand, SingleResponse<bool>>
     {
         private readonly IInterviewDbContext _context;
+        private readonly IMediator _mediator;
 
-        public CreateBadVocableCommandHandler(IInterviewDbContext context)
+        public CreateBadVocableCommandHandler(IInterviewDbContext context, IMediator mediator)
         {
             _context = context;
+            _mediator = mediator;
         }
 
         public async Task<SingleResponse<bool>> Handle(CreateBadVocableCommand request, CancellationToken cancellationToken)
@@ -24,8 +26,14 @@ namespace Interview.Application.UseCases.Users.Commands.BadVocable
             };
 
             await _context.BadVocables.AddAsync(entity, cancellationToken);
+            bool isSucced = await _context.SaveChangesAsync(cancellationToken) > 0;
 
-            response.Data = await _context.SaveChangesAsync(cancellationToken) > 0;
+            if (isSucced)
+            {
+                await _mediator.Publish(new CreatedBadVocableNotification(), cancellationToken);
+            }
+
+            response.Data = isSucced;
             return response;
         }
     }
