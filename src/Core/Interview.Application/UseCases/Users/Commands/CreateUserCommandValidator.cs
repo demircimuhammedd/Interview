@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Interview.Application.UseCases.Users.Commands
 {
-    public class UserCreateCommandValidator : AbstractValidator<UserCreateCommand>
+    public class CreateUserCommandValidator : AbstractValidator<CreateUserCommand>
     {
         private readonly IInterviewDbContext _context;
 
-        public UserCreateCommandValidator(IInterviewDbContext context)
+        public CreateUserCommandValidator(IInterviewDbContext context)
         {
             _context = context;
 

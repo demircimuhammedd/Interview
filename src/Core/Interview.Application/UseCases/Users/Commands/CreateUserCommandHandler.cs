@@ -5,16 +5,16 @@ using MediatR;
 
 namespace Interview.Application.UseCases.Users.Commands
 {
-    public class UserCreateCommandHandler : IRequestHandler<UserCreateCommand, SingleResponse<bool>>
+    public class CreateUserCommandHandler : IRequestHandler<CreateUserCommand, SingleResponse<bool>>
     {
         private readonly IInterviewDbContext _context;
 
-        public UserCreateCommandHandler(IInterviewDbContext context)
+        public CreateUserCommandHandler(IInterviewDbContext context)
         {
             _context = context;
         }
 
-        public async Task<SingleResponse<bool>> Handle(UserCreateCommand request, CancellationToken cancellationToken)
+        public async Task<SingleResponse<bool>> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             SingleResponse<bool> response = new();
 

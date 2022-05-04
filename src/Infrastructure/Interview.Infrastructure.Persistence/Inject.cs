@@ -1,4 +1,5 @@
-﻿using Interview.Infrastructure.Persistence.EfCore.Context;
+﻿using Interview.Application.Abstractions;
+using Interview.Infrastructure.Persistence.EfCore.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -15,6 +16,8 @@ namespace Interview.Infrastructure.Persistence
                 .UseNpgsql(configuration
                     .GetConnectionString("DefaultConnection"), b => b
                     .MigrationsAssembly(typeof(InterviewDbContext).Assembly.FullName)));
+
+            services.AddScoped<IInterviewDbContext>(provider => provider.GetService<InterviewDbContext>());
 
             return services;
         }

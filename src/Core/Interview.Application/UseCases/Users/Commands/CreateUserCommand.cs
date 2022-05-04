@@ -3,7 +3,7 @@ using MediatR;
 
 namespace Interview.Application.UseCases.Users.Commands
 {
-    public class UserCreateCommand : IRequest<SingleResponse<bool>>
+    public class CreateUserCommand : IRequest<SingleResponse<bool>>
     {
         public string Name { get; set; }
         public string Email { get; set; }

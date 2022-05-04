@@ -1,17 +1,24 @@
 using Interview.Application;
 using Interview.Infrastructure.Persistence;
+using Interview.WebAPI;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options => options.Filters.Add<ApiExceptionFilterAttribute>());
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplication();
 builder.Services.AddEfCoreInfrastructure(builder.Configuration);
+
+builder.Services.AddHttpContextAccessor();
+
+builder.Services.AddCors(options =>
+                options.AddDefaultPolicy(builder =>
+                    builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin()));
 
 var app = builder.Build();
 
