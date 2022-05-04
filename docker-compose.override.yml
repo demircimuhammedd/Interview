@@ -1,0 +1,71 @@
+version: '3.4'
+
+services:
+
+  s_interviewapi:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:5000
+    ports:
+      - "5000:5000"
+    networks:
+      - net_backend
+    depends_on:
+      - s_postgresql
+      - s_redis
+      - s_rabbitmq
+
+  s_postgresql:
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=43849212
+      - POSTGRES_DB=InterviewDB
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - net_backend
+
+  s_rabbitmq:
+    ports:
+      - 5672:5672
+      - 15672:15672
+    volumes:
+      - rabbitmq:/var/lib/rabbitmq
+    networks:
+      - net_backend
+
+  s_redis:
+    ports: 
+      - 6379:6379
+    volumes:
+      - /opt/app_data/redis/:/data
+    networks:
+      - net_backend
+
+  s_pgadmin:
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=43849212
+    ports: 
+      - 5050:80
+    restart: unless-stopped
+    volumes:
+      - pgadmin_data:/root/.pgadmin
+    networks:
+      - net_backend
+
+networks:
+  net_backend:
+    driver: bridge
+    external: true
+
+volumes:
+    rabbitmq:
+    postgres_data:
+    pgadmin_data:
+  
+  
+    

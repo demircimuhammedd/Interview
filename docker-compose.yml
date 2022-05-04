@@ -1,0 +1,31 @@
+version: '3.4'
+
+services:
+
+  s_interviewapi:
+    container_name: c_interviewapi
+    image: ${DOCKER_REGISTRY-}interviewwebapi
+    build:
+      context: .
+      dockerfile: src/UI/Interview.WebAPI/Dockerfile
+
+  s_postgresql:
+    container_name: c_postgresql
+    image: postgres:latest
+
+  s_pgadmin:
+    container_name: c_pgadmin
+    image: dpage/pgadmin4
+
+  s_redis:
+    container_name: c_redis
+    image: redis
+
+  s_rabbitmq:
+    container_name: c_rabbitmq
+    image: rabbitmq:3-management
+
+networks:
+  net_backend:
+    driver: bridge
+    external: true
