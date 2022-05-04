@@ -1,4 +1,4 @@
-namespace WebAPI
+namespace Interview.WebAPI
 {
     public class WeatherForecast
     {

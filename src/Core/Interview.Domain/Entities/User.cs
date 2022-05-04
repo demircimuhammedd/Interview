@@ -8,5 +8,8 @@
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
         public int JobQuantity { get; set; }
+
+
+        public virtual ICollection<Job> Jobs { get; set; }
     }
 }
