@@ -21,6 +21,10 @@
 <ul>
 <li>.NET Core 6</li>
 <li>Entity Framework Core</li>
+<li>AutoMapper</li>
+<li>FluentValidation</li>
+<li>Nest</li>
+<li>MediatR</li>
 <li>PostgreSQL</li>
 <li>Redis</li>
 <li>ElasticSearch</li>
