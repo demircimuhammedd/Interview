@@ -1,0 +1,20 @@
+{
+  "profiles": {
+    "Docker Compose": {
+      "commandName": "DockerCompose",
+      "composeLaunchAction": "None",
+      "composeLaunchServiceName": "s_interviewjobservice",
+      "commandVersion": "1.0",
+      "serviceActions": {
+        "s_elasticsearch": "StartWithoutDebugging",
+        "s_interviewapi": "StartDebugging",
+        "s_interviewjobservice": "StartDebugging",
+        "s_kibana": "StartWithoutDebugging",
+        "s_pgadmin": "StartWithoutDebugging",
+        "s_postgresql": "StartWithoutDebugging",
+        "s_rabbitmq": "StartWithoutDebugging",
+        "s_redis": "StartWithoutDebugging"
+      }
+    }
+  }
+}
